@@ -1,0 +1,34 @@
+<section class="gridArea">
+
+    <div class="info">
+        <p>{{ curDate | date }}</p>
+        <p>{{ contentStudentBio.fullName }} / ID: {{ contentStudentBio.studentNumber }}</p>
+        <img id="myPic" src="{{ contentStudentBio.picture }}" width="100">
+    </div>
+
+    <div [ngClass] = "{area1Dow: ( dow | uppercase ) != ( contentStudentBio.dow | uppercase )}" class="area1" >
+        <h4>What day do you have SYST24444 class?</h4>
+
+
+        <input [(ngModel)] = "dow"> <!-- ngModel is a built in Angular feature to allow two way binding-->
+
+        <hr>
+
+        <p *ngIf= " ( dow | uppercase ) === ( contentStudentBio.dow | uppercase ); else dowNotEqual " [ngStyle]="{ 'font-weight' : 'bold' }">
+            My class is on {{ dow }}
+        </p>
+
+        <ng-template #dowNotEqual>
+            <p [ngStyle]="{ 'font-style' : 'italic' }" >Your class is on {{ dow }} </p>
+        </ng-template>
+    </div>
+
+    <div class="area2">
+        <h4>Click to change image border</h4>
+        <button [ngStyle]="{ 'color' : thickSolidSquareColor }" (click)="changeImgBorder('solid', thickSolidSquareColor, 'square')" >Thick Solid Square</button>
+        <button [ngStyle]="{ 'color' : thickSolidRoundColor }" (click)="changeImgBorder('solid', thickSolidRoundColor, 'round')" >Thick Solid Round</button>
+        <button [ngStyle]="{ 'color' : thickDoubleSquareColor }" (click)="changeImgBorder('double', thickDoubleSquareColor, 'square')" >Thick Double Square</button>
+        <button [ngStyle]="{ 'color' : thickDoubleRoundColor }" (click)="changeImgBorder('double', thickDoubleRoundColor, 'round')" >Thick Double Round</button>
+    </div>
+
+</section>

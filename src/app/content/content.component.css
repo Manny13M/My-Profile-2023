@@ -1,0 +1,28 @@
+.gridArea {
+    display: grid;
+    grid-template-columns: 1fr 1fr;  
+    grid-template-rows: auto;
+    grid-template-areas:  
+    "info area1"
+    "info area2";
+    gap: 5px;
+}
+.info {
+    grid-area: info; 
+    text-align: center;
+    background-color: lightgoldenrodyellow;
+}
+.area1 {
+    grid-area: area1;
+    text-align: center;
+    background: radial-gradient(circle at center, lightgoldenrodyellow, rgb(188, 229, 240));
+}
+
+.area1Dow {
+    background: radial-gradient(circle at center, pink, lightgreen);
+}
+
+.area2 {
+    grid-area: area2;
+    background-color: lightpink;
+}
